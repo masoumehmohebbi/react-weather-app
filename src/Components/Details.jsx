@@ -46,29 +46,32 @@ function Detail() {
 function Temperature() {
   return (
     <div className="text-white space-x-3 flex my-8">
-      <p className="flex items-center">
+      <p className="flex space-x-1 items-center">
         <WiSunrise size={25} />
         <h4>Rise</h4>
-        <span>04:50 AM</span>
+        <span>04:50</span>
+        <span>AM</span>
         <p>|</p>
       </p>
-      <p className="flex items-center">
+      <p className="flex space-x-1 items-center">
         <WiSunset size={25} />
         <h4>Set</h4>
-        <span>04:50 AM</span>
+        <span>04:50</span>
+        <span>AM</span>
         <p>|</p>
       </p>
-      <p className="flex items-center">
+      <p className="flex space-x-1 items-center">
         <WiDirectionUp size={25} />
         <h4>High</h4>
-        <span>04:50 AM</span>
+        <span>04:50</span>
+        <span>AM</span>
         <p>|</p>
       </p>
-      <p className="flex items-center">
+      <p className="flex space-x-1 items-center">
         <WiDirectionUp size={25} className="rotate-180" />
         <h4>Low</h4>
-        <span>04:50 AM</span>
-        <p>|</p>
+        <span>04:50</span>
+        <span>AM</span>
       </p>
     </div>
   );

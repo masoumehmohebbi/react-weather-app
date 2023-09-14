@@ -51,23 +51,23 @@ const NavBar = () => {
 const SeatchBar = () => {
   return (
     <section className="my-8 flex w-full">
-      <div className="w-3/4 flex">
+      <div className="w-3/4 flex items-center">
         <input
-          className="focus:outline-none p-1 capitalize placeholder:lowercase"
+          className="focus:outline-none text-xl font-light p-2 w-full shadow-xl  capitalize placeholder:lowercase"
           type="text"
           placeholder="search for city..."
         />
-        <CiSearch size={25} className="text-white" />
-        <CiLocationOn size={25} className="text-white" />
+        <CiSearch size={28} className="text-white mx-2" />
+        <CiLocationOn size={28} className="text-white mx-1" />
       </div>
       <div className="flex text-white flex-row w-1/4 items-center justify-center">
         <button
           name="metric"
-          className="text-xlfont-light transition ease-out hover:scale-125"
+          className="text-xl font-light transition ease-out hover:scale-125"
         >
           °C
         </button>
-        <p className="text-xlmx-1">|</p>
+        <p className="text-xl mx-1">|</p>
         <button
           name="imperial"
           className="text-xl font-light transition ease-out hover:scale-125"

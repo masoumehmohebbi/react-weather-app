@@ -1,78 +1,92 @@
+import { DateTime } from "luxon";
 import {
   WiDirectionUp,
   WiHumidity,
-  WiMoonAltNew,
   WiStrongWind,
   WiSunrise,
   WiSunset,
   WiThermometerExterior,
 } from "react-icons/wi";
-function Details() {
-  return (
-    <section className="flex flex-col ">
-      <Detail />
-      <Temperature />
-    </section>
-  );
+
+export default function Details({ children }) {
+  return <section className="flex flex-col ">{children}</section>;
 }
 
-export default Details;
-
-function Detail() {
+export function Detail({ weather }) {
+  const { feels_like, humidity, temp } = weather.main;
+  const iconUrlFromCode = (code) =>
+    `http://openweathermap.org/img/wn/${code}@2x.png`;
   return (
     <section className="flex justify-between mt-8 items-center text-white">
-      <WiMoonAltNew size={50} className="text-red-500" />
-      <h2 className="text-5xl font-medium">19°</h2>
+      <img
+        src={iconUrlFromCode(weather.weather[0].icon)}
+        alt=""
+        className="w-20"
+      />
+      <h2 className="text-5xl font-medium">{`${temp
+        .toFixed()
+        .slice(0, 2)}°`}</h2>
       <div className="flex items-start flex-col space-y-4">
-        <p className="flex justify-center items-center space-x-1">
+        <div className="flex justify-center items-center space-x-1">
           <WiThermometerExterior size={24} />
           <h4>real feel:</h4>
-          <span>18°</span>
-        </p>
-        <p className="flex justify-center items-center space-x-1">
+          <span>{`${feels_like.toFixed().slice(0, 2)}°`}</span>
+        </div>
+        <div className="flex justify-center items-center space-x-1">
           <WiHumidity size={24} />
           <h4>humidity:</h4>
-          <span>3km/h</span>
-        </p>
-        <p className="flex justify-center items-center space-x-1">
+          <span>{`${humidity.toFixed()}%`}</span>
+        </div>
+        <div className="flex justify-center items-center space-x-1">
           <WiStrongWind size={24} />
           <h4>wind:</h4>
-          <span>43%</span>
-        </p>
+          <span>{`${weather.wind.speed.toFixed()} km/h`}</span>
+        </div>
       </div>
     </section>
   );
 }
-function Temperature() {
+export function Temperature({ weather }) {
   return (
-    <div className="text-white space-x-3 flex my-8">
-      <p className="flex space-x-1 items-center">
+    <section className="text-white space-x-3 flex my-8">
+      <div className="flex space-x-1 items-center">
         <WiSunrise size={25} />
         <h4>Rise</h4>
-        <span>04:50</span>
-        <span>AM</span>
+        <span>
+          {" "}
+          {formatToLocalTime(
+            weather.sys.sunrise,
+            weather.sys.timezone,
+            "hh:mm a"
+          )}
+        </span>
         <p>|</p>
-      </p>
-      <p className="flex space-x-1 items-center">
+      </div>
+      <div className="flex space-x-1 items-center">
         <WiSunset size={25} />
         <h4>Set</h4>
-        <span>04:50</span>
-        <span>AM</span>
+        {formatToLocalTime(weather.sys.sunset, weather.sys.timezone, "hh:mm a")}
         <p>|</p>
-      </p>
-      <p className="flex space-x-1 items-center">
+      </div>
+      <div className="flex space-x-1 items-center">
         <WiDirectionUp size={25} />
         <h4>High</h4>
-        <span>04:50</span>
-        <span>AM</span>
+        <span>{`${weather.main.temp_max.toFixed().slice(0, 2)}°`}</span>
         <p>|</p>
-      </p>
-      <p className="flex space-x-1 items-center">
+      </div>
+      <div className="flex space-x-1 items-center">
         <WiDirectionUp size={25} className="rotate-180" />
         <h4>Low</h4>
-        <span>04:50</span>
-        <span>AM</span>
-      </p>
-    </div>
+        <span>{`${weather.main.temp_min.toFixed().slice(0, 2)}°`}</span>
+      </div>
+    </section>
   );
 }
+
+const formatToLocalTime = (
+  secs,
+  zone,
+  format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a"
+) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
+
+export { formatToLocalTime };

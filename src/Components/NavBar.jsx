@@ -8,7 +8,11 @@ function NavBar() {
       </h1>
       <div className="flex space-x-11 items-center">
         <h2 className="text-xl font-semibold">About</h2>
-        <a href="#">
+        <a
+          href="https://github.com/masoumehmohebbi"
+          target="_blank"
+          rel="noreferrer"
+        >
           <IoLogoGithub size={35} />
         </a>
       </div>

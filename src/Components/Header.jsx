@@ -1,11 +1,11 @@
 import { CiLocationOn, CiSearch } from "react-icons/ci";
+import { formatToLocalTime } from "./Details";
 
-function Header() {
+function Header({ children }) {
   return (
     <div>
       <NavBar />
-      <SeatchBar />
-      <TimeAndLocation />
+      {children}
     </div>
   );
 }
@@ -16,7 +16,7 @@ const NavBar = () => {
   const cities = [
     {
       id: 1,
-      title: "London",
+      title: "Rasht",
     },
     {
       id: 2,
@@ -48,11 +48,12 @@ const NavBar = () => {
   );
 };
 
-const SeatchBar = () => {
+export const SearchBar = ({ setQuery }) => {
   return (
     <section className="my-8 flex w-full">
       <div className="w-3/4 flex items-center">
         <input
+          onChange={(e) => setQuery({ q: e.target.value })}
           className="focus:outline-none text-xl font-light p-2 w-full shadow-xl  capitalize placeholder:lowercase"
           type="text"
           placeholder="search for city..."
@@ -79,11 +80,14 @@ const SeatchBar = () => {
   );
 };
 
-const TimeAndLocation = () => {
+export const TimeAndLocation = ({ weather }) => {
   return (
     <div className="flex flex-col text-white items-center space-y-4">
-      <p className="uppercase">tusday, 31 may 2022 | local time : 000 PM</p>
-      <p className="text-xl">Clear</p>
+      <p className="capitalize">
+        {formatToLocalTime(weather.dt, weather.sys.timezone)}
+      </p>
+      <h1 className="text-4xl font-medium">{`${weather.name}, ${weather.sys.country}`}</h1>
+      <p className="text-xl">{weather.weather[0].main}</p>
     </div>
   );
 };

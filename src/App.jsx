@@ -16,7 +16,6 @@ function App() {
         .get(
           `https://api.openweathermap.org/data/2.5/weather?q=${query.q}&appid=70e424f655b9c47fae9ea4df400c4cca`
         )
-
         .then((res) => {
           toast(
             `Successfully fetched weather for ${res.data.name}, ${res.data.sys.country}.`
@@ -45,8 +44,8 @@ function App() {
           <Detail weather={weather} />
           <Temperature weather={weather} />
         </Details>
-        <ForeCast title={"Hourly forcast"} weather={weather} />
-        <ForeCast title={"daily forcast"} weather={weather} />
+        <ForeCast title={"Hourly forcast"} query={query} />
+        <ForeCast title={"daily forcast"} query={query} />
       </div>
     </section>
   );

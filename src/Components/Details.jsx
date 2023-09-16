@@ -14,8 +14,7 @@ export default function Details({ children }) {
 
 export function Detail({ weather }) {
   const { feels_like, humidity, temp } = weather.main;
-  const iconUrlFromCode = (code) =>
-    `http://openweathermap.org/img/wn/${code}@2x.png`;
+
   return (
     <section className="flex justify-between mt-8 items-center text-white">
       <img
@@ -46,6 +45,8 @@ export function Detail({ weather }) {
     </section>
   );
 }
+export const iconUrlFromCode = (code) =>
+  `http://openweathermap.org/img/wn/${code}@2x.png`;
 export function Temperature({ weather }) {
   return (
     <section className="text-white space-x-3 flex my-8">

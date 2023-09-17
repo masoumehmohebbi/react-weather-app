@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import Details, { Detail, Temperature } from "./Components/Details";
-import Header, { SearchBar, TimeAndLocation } from "./Components/Header";
+import Header, {
+  NavBar,
+  SearchBar,
+  TimeAndLocation,
+} from "./Components/Header";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import ForeCast from "./Components/Forecast";
@@ -36,6 +40,7 @@ function App() {
       <div className="mx-auto min-w-max w-3/5 my-4 py-5 px-20 bg-contain bg-white text-slate-800 border border-[#e9d5ff] rounded-md h-fit shadow-xl">
         <Toaster />
         <Header>
+          <NavBar setQuery={setQuery} />
           <SearchBar setQuery={setQuery} />
           <TimeAndLocation weather={weather} />
         </Header>

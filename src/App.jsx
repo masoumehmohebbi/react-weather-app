@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import Details, { Detail, Temperature } from "./Components/Details";
-import ForeCast from "./Components/ForeCast";
 import Header, { SearchBar, TimeAndLocation } from "./Components/Header";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-import NavBar from "./Components/NavBar";
+import ForeCast from "./Components/Forecast";
 
 function App() {
   const [query, setQuery] = useState({ q: "rasht" });
@@ -31,10 +30,10 @@ function App() {
   if (weather === null) {
     return "Loading weather...";
   }
+
   return (
-    <section>
-      <NavBar />
-      <div className="mx-auto max-w-screen-md mt-4 py-5 px-32 bg-cyan-600 bg-gradient-to-br h-fit shadow-xl shadow-gray-400">
+    <section className="flex justify-center bg-[#faf5ff]">
+      <div className="mx-auto w-3/5 my-4 py-5 px-20 bg-contain bg-white text-slate-800 border border-[#e9d5ff] rounded-md h-fit shadow-xl">
         <Toaster />
         <Header>
           <SearchBar setQuery={setQuery} />
@@ -45,7 +44,7 @@ function App() {
           <Temperature weather={weather} />
         </Details>
         <ForeCast title={"Hourly forcast"} query={query} />
-        <ForeCast title={"daily forcast"} query={query} />
+        {/* <ForeCast title={"daily forcast"} query={query} /> */}
       </div>
     </section>
   );

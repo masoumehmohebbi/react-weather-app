@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { WiDayCloudy } from "react-icons/wi";
 import { iconUrlFromCode } from "./Details";
-import dayjs from "dayjs";
+import { DateTime } from "luxon";
 
 function ForeCast({ title, query }) {
   const [weatherData, setWeatherData] = useState(null);
@@ -23,20 +22,30 @@ function ForeCast({ title, query }) {
     });
   }, [query]);
 
+  console.log(weatherData);
+  const formatToLocalTime = (
+    secs,
+    zone,
+    format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a"
+  ) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
+
   if (!weatherData) {
     return <div>Loading...</div>;
   }
-  console.log(weatherData);
-  const groupedObjects = _.groupBy(weatherData, "dt_txt");
 
   return (
-    <div>
+    <section className="mt-8 w-full">
       <h1 className="uppercase font-bold">{title}</h1>
       <hr className="my-2" />
-      <div className="flex justify-around">
-        {Object.values(groupedObjects).map((item) => (
-          <div key={item.dt} className="flex flex-col ">
-            <h2>{dayjs(item.dt_txt).format("dddd")}</h2>
+      <div className="flex justify-around w-full">
+        {weatherData.slice(6, 12).map((item) => (
+          <div
+            key={item.dt}
+            className="flex flex-col bg-purple-500 text-slate-50 px-3 shadow-lg p-1 items-center rounded-sm"
+          >
+            {/* hourly */}
+            <h2>{formatToLocalTime(item.dt, item.timezone, "hh:mm a")}</h2>
+
             <img
               src={iconUrlFromCode(item.weather[0].icon)}
               className="w-12 my-1"
@@ -46,23 +55,8 @@ function ForeCast({ title, query }) {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
-
-// return (
-//   <section className="mt-8 text-white">
-//     <h1 className="uppercase font-bold">{title}</h1>
-//     <hr className="my-2" />
-//     <div className="flex space-x-8">
-//       <div className="flex flex-col items-center">
-//         <h5>02:00 PM</h5>
-//         <WiDayCloudy className="my-4" size={35} />
-//         <h5>19°</h5>
-//       </div>
-//     </div>
-//   </section>
-// );
-// }
 
 export default ForeCast;

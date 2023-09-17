@@ -11,7 +11,7 @@ import ForeCast from "./Components/Forecast";
 import Loader from "./Components/Loader";
 
 function App() {
-  const [query, setQuery] = useState({ q: "rasht" });
+  const [query, setQuery] = useState({ q: "tehran" });
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {

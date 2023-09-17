@@ -10,6 +10,9 @@ import toast, { Toaster } from "react-hot-toast";
 import ForeCast from "./Components/Forecast";
 import Loader from "./Components/Loader";
 
+const apiKey = import.meta.env.VITE_API_KEY;
+const apiUrl = import.meta.env.VITE_API_URL;
+
 function App() {
   const [query, setQuery] = useState({ q: "tehran" });
   const [weather, setWeather] = useState(null);
@@ -17,9 +20,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${query.q}&appid=70e424f655b9c47fae9ea4df400c4cca`
-        )
+        .get(`${apiUrl}/weather?q=${query.q}&appid=${apiKey}`)
         .then((res) => {
           toast.success(
             `Successfully fetched weather for ${res.data.name}, ${res.data.sys.country}.`
@@ -54,7 +55,6 @@ function App() {
           <Temperature weather={weather} />
         </Details>
         <ForeCast title={"Hourly forcast"} query={query} />
-        {/* <ForeCast title={"daily forcast"} query={query} /> */}
       </div>
     </section>
   );

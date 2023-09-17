@@ -1,18 +1,13 @@
-import { CiLocationOn, CiSearch } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
 import { formatToLocalTime } from "./Details";
 
 function Header({ children }) {
-  return (
-    <div>
-      <NavBar />
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 }
 
 export default Header;
 
-const NavBar = () => {
+export const NavBar = ({ setQuery }) => {
   const cities = [
     {
       id: 1,
@@ -40,7 +35,11 @@ const NavBar = () => {
     <nav className="flex justify-around text-purple-800 font-bold">
       {cities &&
         cities.map((city) => (
-          <button className="cursor-pointer" key={city.id}>
+          <button
+            onClick={() => setQuery({ q: city.title })}
+            className="cursor-pointer"
+            key={city.id}
+          >
             {city.title}
           </button>
         ))}
@@ -51,17 +50,17 @@ const NavBar = () => {
 export const SearchBar = ({ setQuery }) => {
   return (
     <section className="my-8 flex w-full">
-      <div className="w-3/4 flex items-center">
+      <div className="w-full flex items-center">
         <input
           onChange={(e) => setQuery({ q: e.target.value })}
           className="focus:outline-none text-xl capitalize font-light p-2 w-full focus:border-2 bg-purple-200 text-slate-50 placeholder:text-purple-400 focus:border-purple-300 rounded-md placeholder:lowercase placeholder:text-lg"
           type="text"
           placeholder="search for city..."
         />
-        <CiSearch size={28} className="mx-2" />
-        <CiLocationOn size={28} className="mx-1" />
+        <CiSearch size={34} className="mx-2 text-pink-600" />
+        {/* <CiLocationOn size={28} className="mx-1 text-pink-600" /> */}
       </div>
-      <div className="flex flex-row w-1/4 items-center justify-center">
+      {/* <div className="flex flex-row w-1/4 items-center justify-center">
         <button
           name="metric"
           className="text-xl font-light transition ease-out hover:scale-125"
@@ -75,7 +74,7 @@ export const SearchBar = ({ setQuery }) => {
         >
           °F
         </button>
-      </div>
+      </div> */}
     </section>
   );
 };

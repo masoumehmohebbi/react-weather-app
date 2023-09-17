@@ -37,7 +37,7 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="flex justify-around">
+    <nav className="flex justify-around text-purple-800 font-bold">
       {cities &&
         cities.map((city) => (
           <button className="cursor-pointer" key={city.id}>

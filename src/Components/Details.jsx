@@ -17,11 +17,7 @@ export function Detail({ weather }) {
 
   return (
     <section className="flex justify-between mt-8 items-center">
-      <img
-        src={iconUrlFromCode(weather.weather[0].icon)}
-        alt=""
-        className="w-20"
-      />
+      <img src={iconUrlFromCode(weather.weather[0].icon)} alt="" />
       <h2 className="text-5xl font-medium">{`${temp
         .toFixed()
         .slice(0, 2)}°`}</h2>

@@ -1,5 +1,6 @@
 import { CiSearch } from "react-icons/ci";
 import { formatToLocalTime } from "./Details";
+import { useState } from "react";
 
 function Header({ children }) {
   return <div>{children}</div>;
@@ -8,6 +9,7 @@ function Header({ children }) {
 export default Header;
 
 export const NavBar = ({ setQuery }) => {
+  const [activeMenu, setActiveMenu] = useState(1);
   const cities = [
     {
       id: 1,
@@ -31,14 +33,21 @@ export const NavBar = ({ setQuery }) => {
     },
   ];
 
+  const handleButton = (cityId, cityTitle) => {
+    setQuery({ q: cityTitle });
+    setActiveMenu(cityId);
+  };
+
   return (
     <nav className="flex justify-around text-purple-800 font-bold text-xs lg:text-lg mb-11">
       {cities &&
         cities.map((city) => (
           <button
-            onClick={() => setQuery({ q: city.title })}
-            className="cursor-pointer transform hover:scale-110
-            transition duration-500"
+            onClick={() => handleButton(city.id, city.title)}
+            className={`cursor-pointer transform hover:scale-110
+            transition duration-500 ${
+              activeMenu === city.id && "text-pink-500"
+            }`}
             key={city.id}
           >
             {city.title}
@@ -54,7 +63,7 @@ export const SearchBar = ({ setQuery }) => {
       <div className="w-full flex items-center justify-center">
         <input
           onChange={(e) => setQuery({ q: e.target.value })}
-          className="outline-none text-xl capitalize font-light p-1 lg:p-2 w-full border-2 bg-purple-200 focus:bg-purple-300 text-slate-50 placeholder:text-purple-400 border-purple-300 rounded-md placeholder:lowercase placeholder:text-sm lg:placeholder:text-lg"
+          className="outline-none text-xl capitalize font-light p-1 lg:p-2 w-full border-2 bg-purple-200 focus:bg-purple-300 placeholder:text-purple-400 text-purple-800 border-purple-300 rounded-md placeholder:lowercase placeholder:text-sm lg:placeholder:text-lg"
           type="text"
           placeholder="search for city..."
         />

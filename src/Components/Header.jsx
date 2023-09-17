@@ -11,7 +11,7 @@ export const NavBar = ({ setQuery }) => {
   const cities = [
     {
       id: 1,
-      title: "Rasht",
+      title: "Tehran",
     },
     {
       id: 2,
@@ -32,12 +32,13 @@ export const NavBar = ({ setQuery }) => {
   ];
 
   return (
-    <nav className="flex justify-around text-purple-800 font-bold">
+    <nav className="flex justify-around text-purple-800 font-bold text-xs lg:text-lg mb-11">
       {cities &&
         cities.map((city) => (
           <button
             onClick={() => setQuery({ q: city.title })}
-            className="cursor-pointer"
+            className="cursor-pointer transform hover:scale-110
+            transition duration-500"
             key={city.id}
           >
             {city.title}
@@ -50,14 +51,19 @@ export const NavBar = ({ setQuery }) => {
 export const SearchBar = ({ setQuery }) => {
   return (
     <section className="my-8 flex w-full">
-      <div className="w-full flex items-center">
+      <div className="w-full flex items-center justify-center">
         <input
           onChange={(e) => setQuery({ q: e.target.value })}
-          className="focus:outline-none text-xl capitalize font-light p-2 w-full focus:border-2 bg-purple-200 text-slate-50 placeholder:text-purple-400 focus:border-purple-300 rounded-md placeholder:lowercase placeholder:text-lg"
+          className="outline-none text-xl capitalize font-light p-1 lg:p-2 w-full border-2 bg-purple-200 focus:bg-purple-300 text-slate-50 placeholder:text-purple-400 border-purple-300 rounded-md placeholder:lowercase placeholder:text-sm lg:placeholder:text-lg"
           type="text"
           placeholder="search for city..."
         />
-        <CiSearch size={34} className="mx-2 text-pink-600" />
+
+        <CiSearch
+          className="mx-2 cursor-pointer transform hover:scale-125
+            transition duration-500 text-purple-700 text-3xl lg:text-4xl"
+        />
+
         {/* <CiLocationOn size={28} className="mx-1 text-pink-600" /> */}
       </div>
       {/* <div className="flex flex-row w-1/4 items-center justify-center">
@@ -82,10 +88,10 @@ export const SearchBar = ({ setQuery }) => {
 export const TimeAndLocation = ({ weather }) => {
   return (
     <div className="flex flex-col items-center space-y-4">
-      <p className="capitalize">
+      <p className="capitalize text-xs">
         {formatToLocalTime(weather.dt, weather.sys.timezone)}
       </p>
-      <h1 className="text-4xl font-medium text-fuchsia-600">{`${weather.name}, ${weather.sys.country}`}</h1>
+      <h1 className="text-3xl lg:text-4xl font-medium text-fuchsia-600">{`${weather.name}, ${weather.sys.country}`}</h1>
       <p className="text-xl">{weather.weather[0].main}</p>
     </div>
   );

@@ -5,12 +5,15 @@ import { iconUrlFromCode } from "./Details";
 import { DateTime } from "luxon";
 import Loader from "./Loader";
 
+const apiKey = import.meta.env.VITE_API_KEY;
+const apiUrl = import.meta.env.VITE_API_URL;
+
 function ForeCast({ title, query }) {
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
     const getWeatherData = async (location) => {
-      const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&appid=70e424f655b9c47fae9ea4df400c4cca`;
+      const url = `${apiUrl}/forecast?q=${location}&units=metric&appid=${apiKey}`;
       const response = await axios.get(url);
       const data = response.data;
       return data;

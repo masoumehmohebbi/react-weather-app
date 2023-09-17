@@ -33,7 +33,7 @@ function App() {
 
   return (
     <section className="flex justify-center bg-[#faf5ff]">
-      <div className="mx-auto w-3/5 my-4 py-5 px-20 bg-contain bg-white text-slate-800 border border-[#e9d5ff] rounded-md h-fit shadow-xl">
+      <div className="mx-auto min-w-max w-3/5 my-4 py-5 px-20 bg-contain bg-white text-slate-800 border border-[#e9d5ff] rounded-md h-fit shadow-xl">
         <Toaster />
         <Header>
           <SearchBar setQuery={setQuery} />

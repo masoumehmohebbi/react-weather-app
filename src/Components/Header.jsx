@@ -64,26 +64,26 @@ export const NavBar = ({ setQuery }) => {
 };
 
 export const SearchBar = ({ setQuery }) => {
-  const handleInput = (e) => {
-    setQuery({ q: e.target.value });
+  const handleInput = (value) => {
+    setQuery({ q: value });
 
-    if (e.target.value === "") {
+    if (value === "") {
       setQuery({ q: "tehran" });
     }
   };
   return (
     <section className="my-8 flex w-full">
-      <div className="w-full flex items-center justify-center">
+      <div className="w-full flex items-center justify-center relative">
         <input
-          onChange={(e) => handleInput(e)}
-          className="outline-none text-xl capitalize font-light p-1 lg:p-2 w-full border-2 bg-purple-200 focus:bg-purple-300 placeholder:text-purple-400 text-purple-800 border-purple-300 rounded-md placeholder:lowercase placeholder:text-sm lg:placeholder:text-lg"
+          onChange={(e) => handleInput(e.target.value)}
+          className="outline-none text-xl capitalize font-light p-1 lg:p-2 w-full border-2 bg-purple-200 focus:bg-purple-300 placeholder:text-purple-400 text-purple-800 border-purple-300 rounded-md placeholder:lowercase placeholder:text-sm lg:placeholder:text-lg pr-11 lg:pr-11"
           type="text"
           placeholder="search for city..."
         />
 
         <CiSearch
-          className="mx-2 cursor-pointer transform hover:scale-125
-            transition duration-500 text-purple-700 text-3xl lg:text-4xl"
+          className="mx-2 cursor-pointer absolute right-0 pl-1
+            text-purple-500 text-3xl lg:text-4xl border-l border-purple-400"
         />
       </div>
     </section>
@@ -93,7 +93,7 @@ export const SearchBar = ({ setQuery }) => {
 export const TimeAndLocation = ({ weather }) => {
   return (
     <div className="flex flex-col items-center space-y-4">
-      <p className="capitalize text-xs">
+      <p className="capitalize text-xs lg:text-base mb-4">
         {formatToLocalTime(weather.dt, weather.sys.timezone)}
       </p>
       <h1 className="text-3xl lg:text-4xl font-medium text-fuchsia-600">{`${weather.name}, ${weather.sys.country}`}</h1>

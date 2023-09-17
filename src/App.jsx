@@ -22,9 +22,20 @@ function App() {
       await axios
         .get(`${apiUrl}/weather?q=${query.q}&appid=${apiKey}`)
         .then((res) => {
-          toast.success(
-            `Successfully fetched weather for ${res.data.name}, ${res.data.sys.country}.`
-          );
+          toast.success((t) => (
+            <div className="relative">
+              <span>
+                `Successfully fetched weather for ${res.data.name},$
+                {res.data.sys.country}.`
+              </span>
+              <button
+                className="p-2 text-red-500 absolute right-0 top-0 flex items-center justify-center"
+                onClick={() => toast.dismiss(t.id)}
+              >
+                X
+              </button>
+            </div>
+          ));
           return setWeather(res.data);
         })
         .catch((err) => console.log(err));

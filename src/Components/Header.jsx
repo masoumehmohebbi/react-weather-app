@@ -42,27 +42,40 @@ export const NavBar = ({ setQuery }) => {
     <nav className="flex justify-around text-purple-800 font-bold text-xs lg:text-lg mb-11">
       {cities &&
         cities.map((city) => (
-          <button
-            onClick={() => handleButton(city.id, city.title)}
-            className={`cursor-pointer transform hover:scale-110
+          <div key={city.id} className="flex flex-col">
+            <button
+              onClick={() => handleButton(city.id, city.title)}
+              className={`cursor-pointer transform hover:scale-110
             transition duration-500 ${
               activeMenu === city.id && "text-pink-500"
             }`}
-            key={city.id}
-          >
-            {city.title}
-          </button>
+            >
+              {city.title}
+            </button>
+            <span
+              className={`h-[2px] w-full none bg-pink-500 duration-150 ${
+                activeMenu === city.id ? "h-[2px]" : "h-0"
+              }`}
+            ></span>
+          </div>
         ))}
     </nav>
   );
 };
 
 export const SearchBar = ({ setQuery }) => {
+  const handleInput = (e) => {
+    setQuery({ q: e.target.value });
+
+    if (e.target.value === "") {
+      setQuery({ q: "tehran" });
+    }
+  };
   return (
     <section className="my-8 flex w-full">
       <div className="w-full flex items-center justify-center">
         <input
-          onChange={(e) => setQuery({ q: e.target.value })}
+          onChange={(e) => handleInput(e)}
           className="outline-none text-xl capitalize font-light p-1 lg:p-2 w-full border-2 bg-purple-200 focus:bg-purple-300 placeholder:text-purple-400 text-purple-800 border-purple-300 rounded-md placeholder:lowercase placeholder:text-sm lg:placeholder:text-lg"
           type="text"
           placeholder="search for city..."

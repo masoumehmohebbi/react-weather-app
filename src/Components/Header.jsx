@@ -85,24 +85,7 @@ export const SearchBar = ({ setQuery }) => {
           className="mx-2 cursor-pointer transform hover:scale-125
             transition duration-500 text-purple-700 text-3xl lg:text-4xl"
         />
-
-        {/* <CiLocationOn size={28} className="mx-1 text-pink-600" /> */}
       </div>
-      {/* <div className="flex flex-row w-1/4 items-center justify-center">
-        <button
-          name="metric"
-          className="text-xl font-light transition ease-out hover:scale-125"
-        >
-          °C
-        </button>
-        <p className="text-xl mx-1">|</p>
-        <button
-          name="imperial"
-          className="text-xl font-light transition ease-out hover:scale-125"
-        >
-          °F
-        </button>
-      </div> */}
     </section>
   );
 };

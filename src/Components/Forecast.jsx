@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { iconUrlFromCode } from "./Details";
 import { DateTime } from "luxon";
+import Loader from "./Loader";
 
 function ForeCast({ title, query }) {
   const [weatherData, setWeatherData] = useState(null);
@@ -30,14 +31,18 @@ function ForeCast({ title, query }) {
   ) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
   if (!weatherData) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
   }
 
   return (
     <section className="mt-8 w-full">
       <h1 className="uppercase font-bold">{title}</h1>
       <hr className="my-2" />
-      <div className="flex justify-around w-full">
+      <div className="grid grid-cols-2 lg:grid-cols-6 gap-2 w-full">
         {weatherData.slice(6, 12).map((item) => (
           <div
             key={item.dt}

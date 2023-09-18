@@ -43,6 +43,7 @@ This is a Weather application. which I developed it with the TailwindCss library
   <li>Axios</li>
   <li>React Router Dom</li>
   <li>Luxon</li>
+  <li>React Hot Toast</li>
 </ul>
 
 ## Development setup

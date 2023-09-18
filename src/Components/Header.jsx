@@ -53,7 +53,7 @@ export const NavBar = ({ setQuery }) => {
               {city.title}
             </button>
             <span
-              className={`h-[2px] w-full none bg-pink-500 duration-150 ${
+              className={`w-full none bg-pink-500 duration-150 ${
                 activeMenu === city.id ? "h-[2px]" : "h-0"
               }`}
             ></span>

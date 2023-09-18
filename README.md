@@ -6,7 +6,7 @@ Built in hooks:
 Custom hooks:
 
 <figure>
-  <img src="https://github.com/masoumehmohebbi/react-weather-app/blob/main/react-weather-app-IMG1.jpeg"/>
+  <img src="https://github.com/masoumehmohebbi/react-weather-app/blob/main/react-weather-app-IMG1.jpg"/>
   <img src="https://github.com/masoumehmohebbi/react-weather-app/blob/main/react-weather-app-IMG3.PNG"/>
 </figure>
 

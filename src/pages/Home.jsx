@@ -9,7 +9,6 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import ForeCast from "../Components/Forecast";
 import Loader from "../Components/Loader";
-import SideNav from "../Components/SideNav";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -17,7 +16,6 @@ const apiUrl = import.meta.env.VITE_API_URL;
 function Home() {
   const [query, setQuery] = useState({ q: "tehran" });
   const [weather, setWeather] = useState(null);
-  const [isOpenNav, setIsOpenNav] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,26 +52,19 @@ function Home() {
   }
 
   return (
-    <section className="flex justify-center bg-[#faf5ff]">
-      <div
-        className={`
-      ${isOpenNav && "lg:rounded-tr-none"}
-      w-11/12 px-5 lg:w-3/5 my-4 py-5 lg:px-20 bg-contain bg-white text-slate-800 border border-[#e9d5ff] rounded-md h-fit shadow-xl`}
-      >
-        <Toaster position="top-right" />
-        <Header>
-          <NavBar setQuery={setQuery} />
-          <SearchBar setQuery={setQuery} />
-          <TimeAndLocation weather={weather} />
-        </Header>
-        <Details>
-          <Detail weather={weather} />
-          <Temperature weather={weather} />
-        </Details>
-        <ForeCast title={"Hourly forcast"} query={query} />
-      </div>
-      <SideNav isOpenNav={isOpenNav} setIsOpenNav={setIsOpenNav} />
-    </section>
+    <>
+      <Toaster position="top-right" />
+      <Header>
+        <NavBar setQuery={setQuery} />
+        <SearchBar setQuery={setQuery} />
+        <TimeAndLocation weather={weather} />
+      </Header>
+      <Details>
+        <Detail weather={weather} />
+        <Temperature weather={weather} />
+      </Details>
+      <ForeCast title={"Hourly forcast"} query={query} />
+    </>
   );
 }
 

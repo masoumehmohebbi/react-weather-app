@@ -23,13 +23,12 @@ function App() {
         .get(`${apiUrl}/weather?q=${query.q}&appid=${apiKey}`)
         .then((res) => {
           toast.success((t) => (
-            <div className="relative">
-              <span>
-                `Successfully fetched weather for ${res.data.name},$
-                {res.data.sys.country}.`
+            <div className="relative grid grid-cols-4 gap-2">
+              <span className="col-span-3">
+                {`Successfully fetched weather for ${res.data.name},${res.data.sys.country}.`}
               </span>
               <button
-                className="p-2 text-red-500 absolute right-0 top-0 flex items-center justify-center"
+                className="col-span-1 text-red-600 text-xl absolute right-0 top-0 flex items-center justify-center"
                 onClick={() => toast.dismiss(t.id)}
               >
                 X

@@ -2,31 +2,31 @@
 
 React Weather App, based on TailwindCss library And ReactJs. This app built on top of the OpenWeatherMap API.
 
-Built in hooks:
-Custom hooks:
-
 <figure>
   <img src="https://github.com/masoumehmohebbi/react-weather-app/blob/main/react-weather-app-IMG1.jpg"/>
   <img src="https://github.com/masoumehmohebbi/react-weather-app/blob/main/react-weather-app-IMG2.jpg"/>
 </figure>
 
 ## Description
-This is a Personal CV application. which I developed it with the TailwindCss library and the ReactJs library.In this project i developed a custom circle cursor that apears a part of backgroundImage with hovering. My main goal was building a Vertical accordion but at the end it bacame to a personal accordion portfolio (❀❛ ֊ ❛„)♡
+This is a Weather application. which I developed it with the TailwindCss library and the ReactJs library.This app built on top of the OpenWeatherMap API.
+
+##Built in hooks:
+## Custom hooks:
+<ol>
+  <li>useState</li>
+  <li>useEffect</li>
+</ol>
 
 ## Features
 🔥 Responsive styles
 <br />
-📱 React Pdf Viewer
+📱 React Router Dom 
 <br />
-✅ Vertical Accordion
+✅ React Hot Toast
 <br />
-⚡️ Custom Circle Cursor
-<br />
-🧾 Personal CV
+⚡️ OpenWeatherMap API
 <br />
 📀loader Spinner
-<br />
-🐈‍⬛ Dark Mode
 
 ## Requirements
 <ul>
@@ -39,15 +39,15 @@ This is a Personal CV application. which I developed it with the TailwindCss lib
   <li>HTML</li>
   <li>Tailwind css</li>
   <li>React Js</li>
-  <li>Framer Motion</li>
   <li>Loader Spinner</li>
-  <li>Simple Typewriter</li>
-  <li>Alice Carousel</li>
+  <li>Axios</li>
+  <li>React Router Dom</li>
+  <li>Luxon</li>
 </ul>
 
 ## Development setup
 #### First, clone the project:
-git clone https://github.com/masoumehmohebbi/react-accordion-portfolio/
+git clone https://github.com/masoumehmohebbi/react-weather-app/
 
 #### Then, install necessary npm packages:
 npm i

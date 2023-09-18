@@ -3,7 +3,7 @@ import SideNav from "./SideNav";
 
 function Layout({ isOpenNav, setIsOpenNav }) {
   return (
-    <section className="flex justify-center bg-[#faf5ff]">
+    <section className="flex justify-center">
       <div
         className={`
         ${isOpenNav && "lg:rounded-tr-none"}

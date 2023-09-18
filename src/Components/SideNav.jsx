@@ -4,6 +4,7 @@ import {
   IoHomeOutline,
   IoLogoGithub,
 } from "react-icons/io5";
+import { Link } from "react-router-dom";
 function SideNav({ isOpenNav, setIsOpenNav }) {
   return (
     <nav
@@ -17,28 +18,33 @@ function SideNav({ isOpenNav, setIsOpenNav }) {
         className="text-red-600 cursor-pointer transform hover:scale-110
         transition duration-500"
       />
-      {/* <Link to="/"> */}
-      <IoHomeOutline
-        size={25}
-        className="cursor-pointer transform hover:scale-110
+      <Link to="/">
+        <IoHomeOutline
+          size={25}
+          className="cursor-pointer transform hover:scale-110
             transition duration-500"
-      />
-      {/* </Link> */}
-      <a href="https://github.com/masoumehmohebbi">
+        />
+      </Link>
+      <a
+        href="https://github.com/masoumehmohebbi"
+        target="_blank"
+        rel="noreferrer"
+      >
         <IoLogoGithub
           size={25}
           className="cursor-pointer transform hover:scale-110
             transition duration-500"
         />
       </a>
-      {/* <Link to={"/"}>A</Link> */}
-      <a href="#">
-        <IoDocumentTextOutline
-          size={25}
-          className="cursor-pointer transform hover:scale-110
+      <Link to={"about"}>
+        <a href="#">
+          <IoDocumentTextOutline
+            size={25}
+            className="cursor-pointer transform hover:scale-110
             transition duration-500"
-        />
-      </a>
+          />
+        </a>
+      </Link>
     </nav>
   );
 }

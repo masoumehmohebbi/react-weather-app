@@ -1,21 +1,14 @@
-# React Weather App 
-
-⊚⃝⸜(｡∵｡) ⋆｡°✩
+# React Weather App ⊚⃝⸜(｡∵｡) ⋆｡°✩
 
 React Weather App, based on TailwindCss library And ReactJs. This app built on top of the OpenWeatherMap API.
 
 Built in hooks:
 Custom hooks:
 
-
-# react-accordion-portfolio
-React Accordion Portfolio App, based on TailwindCss library And ReactJs
-
 <figure>
-  <img src="https://github.com/masoumehmohebbi/react-accordion-portfolio/blob/main/react-accordion-portfolio-IMG1.PNG"/>
-  <img src="https://github.com/masoumehmohebbi/react-accordion-portfolio/blob/main/react-accordion-portfolio-IMG2.PNG"/>
-  <img src="https://github.com/masoumehmohebbi/react-accordion-portfolio/blob/main/react-accordion-portfolio-IMG4.PNG"/>
-  <img src="https://github.com/masoumehmohebbi/react-accordion-portfolio/blob/main/react-accordion-portfolio-IMG3.PNG"/>
+  <img src="https://github.com/masoumehmohebbi/react-weather-app/blob/main/react-weather-app-IMG1.PNG"/>
+  <img src="https://github.com/masoumehmohebbi/react-weather-app/blob/main/react-weather-app-IMG2.PNG"/>
+  <img src="https://github.com/masoumehmohebbi/react-weather-app/blob/main/react-weather-app-IMG3.PNG"/>
 </figure>
 
 ## Description

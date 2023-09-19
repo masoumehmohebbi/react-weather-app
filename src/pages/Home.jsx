@@ -6,12 +6,14 @@ import Header, {
 } from "../Components/Header";
 import ForeCast from "../Components/Forecast";
 import { Toaster } from "react-hot-toast";
+import { useState } from "react";
 // import Loader from "../Components/Loader";
 
 // const apiKey = import.meta.env.VITE_API_KEY;
 // const apiUrl = import.meta.env.VITE_API_URL;
 
 function Home({ weather, setQuery, query }) {
+  const [activeMenu, setActiveMenu] = useState(1);
   // const [query, setQuery] = useState({ q: "tehran" });
 
   // useEffect(() => {
@@ -52,8 +54,12 @@ function Home({ weather, setQuery, query }) {
     <>
       <Toaster position="top-right" />
       <Header>
-        <NavBar setQuery={setQuery} />
-        <SearchBar setQuery={setQuery} />
+        <NavBar
+          setQuery={setQuery}
+          activeMenu={activeMenu}
+          setActiveMenu={setActiveMenu}
+        />
+        <SearchBar setQuery={setQuery} setActiveMenu={setActiveMenu} />
         <TimeAndLocation weather={weather} />
       </Header>
       <Details>

@@ -25,12 +25,10 @@ function MobileNav() {
         />
       </Link>
       <Link to={"about"}>
-        <a href="#">
-          <IoDocumentTextOutline
-            className="w-6 h-6 cursor-pointer transform hover:scale-110
+        <IoDocumentTextOutline
+          className="w-6 h-6 cursor-pointer transform hover:scale-110
             transition duration-500 text-pink-900"
-          />
-        </a>
+        />
       </Link>
     </nav>
   );

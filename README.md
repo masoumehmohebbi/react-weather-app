@@ -17,6 +17,7 @@ This is a Weather application. which I developed it with the TailwindCss library
 | ------------------ | ---------------------------------------------------------------- |
 | useState           | useWeather                                                       
 | useEffect          |  
+| useLocation        |
 
 ## Features
 🔥 Responsive styles

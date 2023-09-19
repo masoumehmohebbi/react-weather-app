@@ -9,7 +9,7 @@ function SideNav({ isOpenNav, setIsOpenNav }) {
   return (
     <nav
       className={`
-    ${isOpenNav ? "hidden lg:flex" : "hidden lg:flex lg:opacity-0"}
+    ${isOpenNav ? "hidden sm:flex" : "hidden sm:flex sm:opacity-0"}
     bg-purple-200 my-4 h-fit space-y-5 p-1 rounded-r-md ease-in-out transition-opacity flex-col sticky top-0`}
     >
       <IoClose

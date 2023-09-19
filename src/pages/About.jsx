@@ -1,8 +1,9 @@
 function About() {
   return (
     <section>
-      <h1 className="font-bold text-lg">
-        React Weather App <span className="hidden sm:block">⊚⃝⸜(｡∵｡) ⋆｡°✩</span>
+      <h1 className="font-bold text-lg flex items-center">
+        React Weather App{" "}
+        <span className="hidden sm:block ml-3">⊚⃝⸜(｡∵｡) ⋆｡°✩</span>
       </h1>
       <hr className="my-5" />
       <p>

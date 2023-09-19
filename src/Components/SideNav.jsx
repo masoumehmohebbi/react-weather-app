@@ -37,13 +37,11 @@ function SideNav({ isOpenNav, setIsOpenNav }) {
         />
       </a>
       <Link to={"about"}>
-        <a href="#">
-          <IoDocumentTextOutline
-            size={25}
-            className="cursor-pointer transform hover:scale-110
+        <IoDocumentTextOutline
+          size={25}
+          className="cursor-pointer transform hover:scale-110
             transition duration-500"
-          />
-        </a>
+        />
       </Link>
     </nav>
   );

@@ -1,7 +1,9 @@
 function About() {
   return (
     <section>
-      <h1 className="font-bold text-lg">React Weather App ⊚⃝⸜(｡∵｡) ⋆｡°✩</h1>
+      <h1 className="font-bold text-lg">
+        React Weather App &nbsp; ⊚⃝⸜(｡∵｡) ⋆｡°✩
+      </h1>
       <hr className="my-5" />
       <p>
         This is a Weather application. which I developed it with the TailwindCss

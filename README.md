@@ -14,11 +14,17 @@ This is a Weather application. which I developed it with the TailwindCss library
 <ol>
   <li>useWeather</li>
 </ol>
+
 ## Built in hooks:
 <ol>
   <li>useState</li>
   <li>useEffect</li>
 </ol>
+
+| Built in hooks     | Custom hooks                                                     |
+| ------------------ | ---------------------------------------------------------------- |
+| useState           | useWeather                                                       |
+| useEffect          |  |
 
 ## Features
 🔥 Responsive styles

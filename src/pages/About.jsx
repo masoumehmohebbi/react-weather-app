@@ -20,6 +20,13 @@ function About() {
         </ul>
       </p>
       <hr className="my-5" />
+      <p>
+        <h2 className="font-bold">Custom hook:</h2>
+        <ul className="mt-3">
+          <li>useWeather</li>
+        </ul>
+      </p>
+      <hr className="my-5" />
       <div>
         <h2 className="font-bold">Technologies used in this App:</h2>
         <ul className="mt-3">

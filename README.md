@@ -4,6 +4,7 @@ React Weather App, based on TailwindCss library And ReactJs. This app built on t
 
 <figure>
   <img src="https://github.com/masoumehmohebbi/react-weather-app/blob/main/react-weather-app-IMG1.jpg"/>
+  <img src="https://github.com/masoumehmohebbi/react-weather-app/blob/main/react-weather-app-IMG3.jpg"/>
   <img src="https://github.com/masoumehmohebbi/react-weather-app/blob/main/react-weather-app-IMG2.jpg"/>
 </figure>
 
@@ -16,6 +17,7 @@ This is a Weather application. which I developed it with the TailwindCss library
 | ------------------ | ---------------------------------------------------------------- |
 | useState           | useWeather                                                       
 | useEffect          |  
+| useLocation        |
 
 ## Features
 🔥 Responsive styles

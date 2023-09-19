@@ -10,7 +10,10 @@ React Weather App, based on TailwindCss library And ReactJs. This app built on t
 ## Description
 This is a Weather application. which I developed it with the TailwindCss library and the ReactJs library.This app built on top of the OpenWeatherMap API.
 
-##Custom hooks:
+## Custom hooks:
+<ol>
+  <li>useWeather</li>
+</ol>
 ## Built in hooks:
 <ol>
   <li>useState</li>

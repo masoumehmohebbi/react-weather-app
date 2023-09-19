@@ -13,7 +13,7 @@ function About() {
       </p>
       <hr className="my-5" />
       <p>
-        <h2 className="font-bold">Custom hooks:</h2>
+        <h2 className="font-bold">Built in hooks:</h2>
         <ul className="mt-3">
           <li>useState</li>
           <li>useEffect</li>

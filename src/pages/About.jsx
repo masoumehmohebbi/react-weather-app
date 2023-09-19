@@ -1,4 +1,12 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 function About() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <section>
       <h1 className="font-bold text-lg flex items-center">
@@ -17,6 +25,7 @@ function About() {
         <ul className="mt-3">
           <li>useState</li>
           <li>useEffect</li>
+          <li>useLocation</li>
         </ul>
       </p>
       <hr className="my-5" />

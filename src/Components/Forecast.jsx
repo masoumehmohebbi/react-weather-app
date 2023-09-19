@@ -45,7 +45,7 @@ function ForeCast({ title, query }) {
     <section className="mt-8 w-full">
       <h1 className="uppercase font-bold">{title}</h1>
       <hr className="my-2" />
-      <div className="grid grid-cols-2 lg:grid-cols-6 gap-2 w-full mt-4">
+      <div className="grid grid-cols-2 px-4 lg:px-0 sm:grid-cols-3 lg:grid-cols-6 gap-2 w-full mt-4  justify-center ">
         {weatherData.slice(6, 12).map((item) => (
           <div
             key={item.dt}

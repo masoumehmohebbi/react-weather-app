@@ -1,6 +1,5 @@
 import { CiSearch } from "react-icons/ci";
 import { formatToLocalTime } from "./Details";
-import { useState } from "react";
 
 function Header({ children }) {
   return <div>{children}</div>;
@@ -8,8 +7,7 @@ function Header({ children }) {
 
 export default Header;
 
-export const NavBar = ({ setQuery }) => {
-  const [activeMenu, setActiveMenu] = useState(1);
+export const NavBar = ({ setQuery, activeMenu, setActiveMenu }) => {
   const cities = [
     {
       id: 1,
@@ -63,13 +61,14 @@ export const NavBar = ({ setQuery }) => {
   );
 };
 
-export const SearchBar = ({ setQuery }) => {
+export const SearchBar = ({ setQuery, setActiveMenu }) => {
   const handleInput = (value) => {
     setQuery({ q: value });
 
     if (value === "") {
       setQuery({ q: "tehran" });
     }
+    setActiveMenu(1);
   };
   return (
     <section className="my-8 flex w-full">

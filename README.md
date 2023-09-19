@@ -21,7 +21,7 @@ This is a Weather application. which I developed it with the TailwindCss library
   <li>useEffect</li>
 </ol>
 
-| Built in hooks     | Custom hooks                                                     |
+| ## Built in hooks  | ## Custom hooks                                                     |
 | ------------------ | ---------------------------------------------------------------- |
 | useState           | useWeather                                                       |
 | useEffect          |  |
